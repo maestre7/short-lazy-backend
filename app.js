@@ -27,9 +27,10 @@ app.use(cors({
 
 app.use(require('express').json());
 app.use('/', require('./routes/index'));
-app.use('/api', require('./routes/urls'));
+app.use('/api', require('./controllers/postUrl'));
 
-const port = process.env.PORT || 3000; //Listen for incoming requests
+//Listen for incoming requests
+const port = process.env.PORT || 3000; 
 app.listen(port, () => {
     console.log('Working!!!',  `http://localhost:${port}`);
 });

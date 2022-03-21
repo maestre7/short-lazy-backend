@@ -1,12 +1,12 @@
-const Express = require('express');
-const router = Express.Router();
+
 const shortid = require('shortid');
-const Url = require('../models/Url');
 const validUrl = require('valid-url')
 require('dotenv').config({ path: '../config/.env' });
 
+const Url = require('../models/Url');
+
 // Short URL Generator
-router.post('/short', async (req, res) => {
+async function postUrl(req, res) {
     const { origUrl } = req.body;
     const base = process.env.BASE;
   
@@ -38,6 +38,6 @@ router.post('/short', async (req, res) => {
     } else {
         res.status(400).json('Invalid Original Url');
     }
-});
+};
   
-module.exports = router;
+module.exports = postUrl;
