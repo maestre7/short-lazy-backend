@@ -1,5 +1,5 @@
 
-const Url = require('../models/Url');
+const Url = require("../models/Url");
 
 async function getShortUrl(req, res) {
     try {
@@ -9,12 +9,12 @@ async function getShortUrl(req, res) {
             url.save();
             return res.redirect(url.origUrl);
         } else {
-            res.status(404).json('Not found');
+            res.status(404).json("Not found");
         }
     } catch (err) {
         console.log(err);
-        res.status(500).json('Server Error');
+        res.status(500).json("Server Error");
     }
-};
+}
 
 module.exports = getShortUrl;

@@ -1,9 +1,9 @@
 
-const shortid = require('shortid');
-const validUrl = require('valid-url')
-require('dotenv').config({ path: '../config/.env' });
+const shortid = require("shortid");
+const validUrl = require("valid-url")
+require("dotenv").config({ path: "../config/.env" });
 
-const Url = require('../models/Url');
+const Url = require("../models/Url");
 
 // Short URL Generator
 async function postUrl(req, res) {
@@ -34,11 +34,11 @@ async function postUrl(req, res) {
             }
         } catch (err) {
             console.log(err);
-            res.status(500).json('Server Error');
+            res.status(500).json("Server Error");
         }
     } else {
-        res.status(400).json('Invalid Original Url');
+        res.status(400).json("Invalid Original Url");
     }
-};
+}
   
 module.exports = postUrl;
