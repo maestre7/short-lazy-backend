@@ -7,13 +7,14 @@ const Url = require('../models/Url');
 
 // Short URL Generator
 async function postUrl(req, res) {
+    console.log(req.body);
     const { origUrl } = req.body;
     const base = process.env.BASE;
   
     // if valid, we create the url code
     const urlId = shortid.generate();
     // check long url if valid using the validUrl.isUri method
-    if (validUrl(origUrl)) {
+    if (validUrl.isUri(origUrl)) {
         try {
             let url = await Url.findOne({ origUrl });
             if (url) {
