@@ -1,5 +1,5 @@
-const mongoose = require('mongoose'); // import mongoose package
-require('dotenv').config({ path: './.env' });
+const mongoose = require("mongoose"); // import mongoose package
+require("dotenv").config({ path: "./.env" });
 
 // Database config
 const connectDB = () => {
@@ -8,7 +8,7 @@ const connectDB = () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        console.log('Database Connected');
+        console.log("Database Connected");
     } catch (err) {
         console.error(err.message);
         process.exit(1);

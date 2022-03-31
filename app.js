@@ -1,14 +1,14 @@
-let app = require('express')();
-const cors = require('cors');
-const connectDB = require('./config/db');
-require('dotenv').config({ path: './config/.env' });
+let app = require("express")();
+const cors = require("cors");
+const connectDB = require("./config/db");
+require("dotenv").config({ path: "./config/.env" });
 
 
 connectDB(); // establishing a database connection
 
 //valid origins
-const allowedOrigins = ['http://localhost:3000',
-                      'http://yourapp.com'];
+const allowedOrigins = ["http://localhost:3001",
+                        "http://localhost:3000"];
 
 app.use(cors({
     origin: function(origin, callback){
@@ -16,8 +16,8 @@ app.use(cors({
         // (like mobile apps or curl requests)
         if(!origin) return callback(null, true);
         if(allowedOrigins.indexOf(origin) === -1){
-            const msg = 'The CORS policy for this site does not ' +
-                        'allow access from the specified Origin.';
+            const msg = "The CORS policy for this site does not " +
+                        "allow access from the specified Origin.";
             return callback(new Error(msg), false);
         }
         
@@ -25,12 +25,12 @@ app.use(cors({
     }
 }));
 
-app.use(require('express').json());
-app.use('/', require('./routes/index'));
-app.use('/api', require('./controllers/postUrl'));
+app.use(require("express").json());
+app.use("/", require("./routes/index"));
+app.use("/api", require("./controllers/postUrl"));
 
 //Listen for incoming requests
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 3500; 
 app.listen(port, () => {
-    console.log('Working!!!',  `http://localhost:${port}`);
+    console.log("Working!!!",  `http://localhost:${port}`);
 });
