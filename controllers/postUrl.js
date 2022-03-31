@@ -1,13 +1,13 @@
 
 const shortid = require("shortid");
-const validUrl = require("valid-url")
+const validUrl = require("valid-url");
 require("dotenv").config({ path: "../config/.env" });
 
 const Url = require("../models/Url");
 
 // Short URL Generator
 async function postUrl(req, res) {
-    console.log(req.body);
+    console.log('body: ',req.body);
     const { origUrl } = req.body;
     const base = process.env.BASE;
   

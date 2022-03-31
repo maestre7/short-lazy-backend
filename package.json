@@ -1,0 +1,33 @@
+{
+  "name": "short-lazy-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maestre7/short-lazy-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maestre7/short-lazy-backend/issues"
+  },
+  "homepage": "https://github.com/maestre7/short-lazy-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.7",
+    "shortid": "^2.2.16",
+    "valid-url": "^1.0.9"
+  },
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.1.0"
+  }
+}

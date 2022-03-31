@@ -7,8 +7,8 @@ require("dotenv").config({ path: "./config/.env" });
 connectDB(); // establishing a database connection
 
 //valid origins
-const allowedOrigins = ["http://localhost:3000",
-                      "http://yourapp.com"];
+const allowedOrigins = ["http://localhost:3001",
+                        "http://localhost:3000"];
 
 app.use(cors({
     origin: function(origin, callback){
@@ -30,7 +30,7 @@ app.use("/", require("./routes/index"));
 app.use("/api", require("./controllers/postUrl"));
 
 //Listen for incoming requests
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 3500; 
 app.listen(port, () => {
     console.log("Working!!!",  `http://localhost:${port}`);
 });
