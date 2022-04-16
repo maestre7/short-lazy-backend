@@ -8,8 +8,8 @@ const Url = require("../models/Url");
 // Short URL Generator
 async function postUrl(req, res) {
     console.log('body: ',req.body);
-    const { origUrl } = req.body;
-    const base = process.env.BASE;
+    /* original url and calling web url */
+    const { origUrl, callUrl } = req.body;
   
     // if valid, we create the url code
     const urlId = shortid.generate();
@@ -20,8 +20,8 @@ async function postUrl(req, res) {
             if (url) {
                 res.json(url);
             } else {
-                const shortUrl = `${base}/${urlId}`;
-
+                const shortUrl = `${callUrl}/${urlId}`;
+                console.log('back-shortUrl', shortUrl);
                 url = new Url({
                     origUrl,
                     shortUrl,

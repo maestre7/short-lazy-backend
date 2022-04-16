@@ -27,7 +27,7 @@ app.use(cors({
 
 app.use(require("express").json());
 app.use("/", require("./routes/index"));
-app.use("/api", require("./controllers/postUrl"));
+//app.use("/api", require("./controllers/postUrl"));
 
 //Listen for incoming requests
 const port = process.env.PORT || 3500; 
