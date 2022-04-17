@@ -7,7 +7,6 @@ const Url = require("../models/Url");
 
 // Short URL Generator
 async function postUrl(req, res) {
-    console.log('body: ',req.body);
     /* original url and calling web url */
     const { origUrl, callUrl } = req.body;
   
@@ -21,7 +20,6 @@ async function postUrl(req, res) {
                 res.json(url);
             } else {
                 const shortUrl = `${callUrl}/${urlId}`;
-                console.log('back-shortUrl', shortUrl);
                 url = new Url({
                     origUrl,
                     shortUrl,
@@ -33,7 +31,6 @@ async function postUrl(req, res) {
                 res.json(url);
             }
         } catch (err) {
-            console.log(err);
             res.status(500).json("Server Error");
         }
     } else {
