@@ -14,8 +14,8 @@ app.use(cors({
     origin: function(origin, callback){
         // allow requests with no origin 
         // (like mobile apps or curl requests)
-        if(!origin) return callback(null, true);
-        if(allowedOrigins.indexOf(origin) === -1){
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
             const msg = "The CORS policy for this site does not " +
                         "allow access from the specified Origin.";
             return callback(new Error(msg), false);
@@ -27,7 +27,6 @@ app.use(cors({
 
 app.use(require("express").json());
 app.use("/", require("./routes/index"));
-app.use("/api", require("./controllers/postUrl"));
 
 //Listen for incoming requests
 const port = process.env.PORT || 3500; 

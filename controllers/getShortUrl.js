@@ -7,12 +7,11 @@ async function getShortUrl(req, res) {
         if (url) {
             url.clicks++;
             url.save();
-            return res.redirect(url.origUrl);
+            res.json({"shortUrl":url.origUrl});
         } else {
             res.status(404).json("Not found");
         }
     } catch (err) {
-        console.log(err);
         res.status(500).json("Server Error");
     }
 }
