@@ -7,7 +7,7 @@ async function getShortUrl(req, res) {
         if (url) {
             url.clicks++;
             url.save();
-            res.json({'shortUrl':url.origUrl});
+            res.json({"shortUrl":url.origUrl});
         } else {
             res.status(404).json("Not found");
         }
